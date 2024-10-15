@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nellie Mullane's Portfolio">
+    <title>Nellie Mullane - Portfolio</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Add your CSS file -->
+</head>
+<body>
+    <!-- Header Section with Navigation -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-content">
+            <h1>Nellie Mullane</h1>
+            <p>UC Berkeley Computer Science and Mathematics student</p>
+        </div>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            Hi! I'm a soon-to-be graduate of UC Berkeley, where I'm completing a double major in Mathematics and Computer Science, plus a minor in Spanish. I have a deep love for math, particularly pure mathematics like mathematical logic and computation theory, and I enjoy applying these concepts to complex problems in computing.
+        </p>
+        <p>
+            I find the most rewarding experiences come from working in teams where collaboration sparks innovation. Throughout my academic journey, I’ve had the chance to lead, teach, and learn from others, which drives my passion for continuous growth in the tech world.
+        </p>
+        <p>
+            Outside the realm of code, I immerse myself in the arts. Whether it’s performing in a classical chorus, creating visual art, or learning new crafts like sewing and knitting, these activities keep my creativity flowing and influence how I approach problem-solving in software.
+        </p>
+        <p>
+            I’m excited to bring my skills and enthusiasm to a software development role, where I can continue learning and contribute to impactful projects. Let’s build something great together!
+        </p>
+        <br>
+        <p><strong>Languauges:</strong> Python, Ruby, JavaScript, HTML, CSS, Java, C, C++, Go, Julia, MATLAB, x86 Assembly, RISC-V Assembly</p>
+        <p><strong>Technical Skills:</strong> Ruby on Rails, Cucumber/Capybara, SQL, JUnit, Git, SIMD, OpenMP, OpenMPI</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>My Favorite Projects</h2>
+        
+        <!-- Action Map Website Development -->
+        <div class="project">
+            <h3>Action Map Website Development</h3>
+            <p>
+                Jul 2024 - Aug 2024 (Associated with University of California, Berkeley)  
+                CS 169A: Software Engineering– Ruby on Rails, JavaScript, HTML
+            </p>
+            <ul>
+                <li>Served as Scrum Master, collaborating with cross-functional team members to oversee Agile development of a Ruby on Rails application that allowed users to search for political representatives and view real-time news.</li>
+                <li>Developed key features, including building MVC components, creating UI views, handling database migrations, and integrating the Google Civic Information API for real-time data.</li>
+                <li>Employed Test-Driven Development (TDD) practices, using Cucumber/Capybara to ensure high test coverage.</li>
+            </ul>
+            <p><strong>Skills:</strong> Ruby on Rails, JavaScript, HTML, Team Management, Web Development</p>
+
+              <!-- Video Embed -->
+    <video width="600" controls>
+        <source src="ActionMapVideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+        </div>
+
+        <!-- Computer Graphics Projects -->
+<div class="project">
+    <h3>Computer Graphics Projects</h3>
+    <p>
+        Jan 2024 - Apr 2024 (Associated with University of California, Berkeley)  
+        CS 184: Computer Graphics – C++
+    </p>
+    <ul>
+        <li><a href="https://cal-cs184-student.github.io/hw-webpages-sp24-nelliemullane/hw1/index.html" target="_blank">Project 1</a>: Applied foundational graphics rendering techniques like triangle rasterization, anti-aliasing, affine transformations, and texture mapping.</li>
+        <li><a href="https://cal-cs184-student.github.io/hw-webpages-sp24-nelliemullane/hw2/index.html" target="_blank">Project 2</a>: Engineered surface modeling solutions using Bézier curves and mesh processing, focusing on accurate surface representation.</li>
+        <li><a href="https://cal-cs184-student.github.io/hw-webpages-sp24-nelliemullane/hw3/index.html" target="_blank">Project 3</a>: Designed and optimized a path tracing algorithm to simulate realistic light interactions.</li>
+        <li><a href="https://cal-cs184-student.github.io/hw-webpages-sp24-nelliemullane/hw4/index.html" target="_blank">Project 4</a>: Developed a comprehensive cloth simulation system with advanced shaders for realistic rendering.</li>
+    </ul>
+    <ul>
+        <img src="graphics1.png" alt="Description of image" width="600">
+        <img src="graphics2.png" alt="Description of image" width="600">
+        <img src="graphics3.png" alt="Description of image" width="600">
+        <img src="graphics4.png" alt="Description of image" width="600">
+
+    </ul>
+    <p><strong>Skills:</strong> C++, Computer Graphics</p>
+</div>
+
+
+        <!-- Secure File Storing and Sharing Platform -->
+        <div class="project">
+            <h3>Secure File Storing and Sharing Platform</h3>
+            <p>
+                Mar 2024 - Apr 2024 (Associated with University of California, Berkeley)  
+                CS 161: Computer Security– Golang
+            </p>
+            <ul>
+                <li>Designed and implemented a secure file sharing platform enabling user login, file upload, and controlled sharing of files with other users.</li>
+                <li>Encrypted all data in memory, protecting against potential attackers with memory access.</li>
+                <li>Managed cryptographic key sharing between users to securely control file access and secure revocation of access.</li>
+                <li>Enabled detection of tampering in memory, ensuring integrity of stored data</li>
+            </ul>
+            <p><strong>Skills:</strong> Go, Cybersecurity</p>
+        </div>
+
+        <!-- Tiger Team: Identifying Web Server and Codebase Vulnerabilities -->
+        <div class="project">
+            <h3>Tiger Team: Identifying Web Server and Codebase Vulnerabilities</h3>
+            <p>
+                Jan 2024 - Apr 2024 (Associated with University of California, Berkeley)  
+                CS 161: Computer Security – x86, SQL
+            </p>
+            <ul>
+                <li>Identified and exploited vulnerabilities in a provided C codebase, including improper buffer bounds checks and mishandling of signed and unsigned integers, leading to successful memory manipulation and shellcode execution.</li>
+                <li>Utilized GDB to determine critical memory address and constructed custom shellcode injections to bypass security mechanisms like ASLR and canaries </li>
+                <li>Discovered and exploited a provided webserver’s vulnerabilities, including SQL injection, stored XSS, and path traversal attacks, to gain unauthorized access and retrieve sensitive information from web application, demonstrating my understanding of web security flaws. </li>
+                <li>Provided detailed recommendations for mitigating these vulnerabilities, such as implementing parameterized queries, input sanitization, and enforcing stricter character restrictions, to enhance the security posture of the web application</li>
+            </ul>
+            <p><strong>Skills:</strong> x86 Assembly, SQL, Cyber Defense</p>
+        </div>
+
+        <!-- Optimized Matrix Convolution -->
+        <div class="project">
+            <h3>Optimized Matrix Convolution</h3>
+            <p>
+                Apr 2023 - May 2023 (Associated with University of California, Berkeley)  
+                CS 61C: Great Ideas of Computer Architecture – C Programming
+            </p>
+            <ul>
+                <li>Implemented and optimized the matrix convolution operation using SIMD, OpenMP, and OpenMPI parallelization.</li>
+                <li>Ranked #7 in speed among over 600 students.</li>
+            </ul>
+            <p><strong>Skills:</strong> C, SIMD, OpenMP, OpenMPI</p>
+        </div>
+
+        <!-- Build CPU -->
+        <div class="project">
+            <h3>Build CPU</h3>
+            <p>
+                Mar 2023 - Apr 2023 (Associated with University of California, Berkeley)  
+                CS 61C: Great Ideas of Computer Architecture – RISC-V, Logisim
+            </p>
+            <ul>
+                <li> Used Logisim to build a CPU that runs Risc-V assembly language instructions. </li>
+                <li> Implemented Arithmetic Logic Unit (ALU), a register file, an immediate generator, functional data paths and control logic for each instruction type, instruction fetching decoding and execution, a branch comparator, control for branching hazards.</li>
+            </ul>
+            <p><strong>Skills:</strong> RISC-V, Logisim, Computer Hardware</p>
+        </div>
+
+        <!-- Build Your Own World -->
+        <div class="project">
+            <h3>Build Your Own World</h3>
+            <p>
+                Nov 2022 - Dec 2022 (Associated with University of California, Berkeley)  
+                CS 61B: Data Structures – Java
+            </p>
+            <ul>
+                <li>Created an algorithm, using Java’s StdDraw package, that pseudo-randomly generates 2D worlds of rooms connected by hallways, in collaboration with a team member. </li>
+                <li>Allowed user to input any set of numbers which the algorithm used for generation. Inputting the same number again generates the same world. </li>
+                <li>Implemented the following features: select the avatar, explore the world, save world, load previously saved world, and toggle between full and restricted vision.</li>
+            </ul>
+            <p><strong>Skills:</strong> Data Structures, Java</p>
+
+            <video width="600" controls>
+                <source src="BYOW.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Zero Approximation Algorithm -->
+        <div class="project">
+            <h3>Zero Approximation Algorithm</h3>
+            <p>
+                Nov 2022 (Associated with University of California, Berkeley)  
+                Math 128a: Numerical Analysis – MATLAB
+            </p>
+            <ul>
+                <li> Independently constructed an algorithm that approximates the zero of any equation. </li>
+                <li>Applied the Zeroin Method which is a combination of the inverse quadrature method and the bisection method.</li>
+            </ul>
+            <p><strong>Skills:</strong> MATLAB</p>
+        </div>
+
+        <!-- NGram Viewer -->
+        <div class="project">
+            <h3>NGram Viewer</h3>
+            <p>
+                Oct 2022 (Associated with University of California, Berkeley)  
+                CS 61B: Data Structures – Java
+            </p>
+            <ul>
+                <li>Developed an object-oriented program to analyze historical word usage data, displaying frequency and relationships through an interactive user interface.</li>
+                <li>Designed and optimized graph structures and algorithms to meet run time requirements, and model relationships between words, ensuring accuracy through custom JUnit tests.</li>
+            </ul>
+            <ul>
+                <img src="ngram1.png" alt="Description of image" width="600">
+            </ul>
+            <p><strong>Skills:</strong> Java, Data Structures</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <style>
+        #contact ul {
+          margin-top: 10px; /* Adjust the value to control the space */
+        }
+      </style>
+      
+      <section id="contact">
+          <h2>Contact</h2>
+          <p>Feel free to reach out via email or check out my LinkedIn:</p>
+          
+          <ul>
+              <li>Email Me: <a href="mailto:nem123@berkeley.edu">nem123@berkeley.edu</a></li>
+              <li>LinkedIn: <a href="https://www.linkedin.com/in/nellie-mullane" target="_blank">www.linkedin.com/in/nellie-mullane</a></li>
+          </ul>
+      </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Nellie Mullane</p>
+    </footer>
+</body>
+</html>
