@@ -8,18 +8,18 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    color: #1D1D1F; /* Dark gray for text */
-    background-color: #ECECEC; /* Light gray background to reduce white */
+    color: #FFFFFF; /* White text */
+    background-color: #1C1C1E; /* Dark background */
     padding: 20px;
 }
 
 /* Header Section */
 header {
-    background-color: #9eaebe; /* Soft light blue-gray background */
-    color: #1D1D1F; /* Dark gray text */
+    background-color: #2C2C2E; /* Darker gray background */
+    color: #FFFFFF; /* White text */
     padding: 20px 0;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Subtle shadow for header */
 }
 
 header h1 {
@@ -46,14 +46,14 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #0071E3; /* Subtle Apple blue for links */
+    color: #0A84FF; /* Bright blue for links */
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #FF2D55; /* Pinkish-red on hover */
+    color: #FF375F; /* Pinkish-red on hover */
     text-decoration: underline;
 }
 
@@ -61,9 +61,9 @@ nav ul li a:hover {
 section {
     margin: 50px 0;
     padding: 30px;
-    background: #F5F5F7; /* Light gray background for sections */
+    background: #2C2C2E; /* Dark gray background for sections */
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); /* Subtle shadow for depth */
     transition: transform 0.3s ease;
 }
 
@@ -73,28 +73,40 @@ section:hover {
 
 h2 {
     font-size: 28px;
-    color: #1D1D1F;
+    color: #FFFFFF; /* White text */
     margin-bottom: 20px;
 }
 
 p {
     margin-bottom: 15px;
-    color: #333333; /* Medium gray for a soft look */
+    color: #D1D1D6; /* Light gray for regular text */
+}
+
+/* Computer Graphics Project Links */
+.project a {
+    color: #0A84FF; /* Bright blue for project links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project a:hover {
+    color: #FF375F; /* Pinkish-red on hover */
+    text-decoration: underline;
 }
 
 /* Project Section */
 .project {
     margin-bottom: 40px;
     padding: 20px;
-    background-color: #FAFAFA; /* Slightly off-white */
-    border: 2px solid #D1D5DB; /* Light silver border */
+    background-color: #3A3A3C; /* Slightly lighter dark gray */
+    border: 2px solid #48484A; /* Lighter gray border */
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .project h3 {
     font-size: 24px;
-    color: #1D1D1F;
+    color: #FFFFFF;
 }
 
 /* Interactive Image Hover Effect */
@@ -103,22 +115,22 @@ p {
     height: auto;
     margin-top: 15px;
     border-radius: 8px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease;
 }
 
 .project img:hover {
     transform: scale(1.05); /* Grow the image on hover */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Increase shadow */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* Increase shadow */
 }
 
 /* Contact Section */
 #contact {
-    background-color: #F0F4F8; /* Light blue-gray background */
+    background-color: #2C2C2E; /* Dark background */
     padding: 30px;
     border-radius: 8px;
     margin-top: 50px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
 #contact ul {
@@ -131,13 +143,13 @@ p {
 }
 
 #contact ul li a {
-    color: #0071E3;
+    color: #0A84FF; /* Bright blue */
     font-weight: bold;
     text-decoration: none;
 }
 
 #contact ul li a:hover {
-    color: #FF2D55; /* Pinkish-red hover effect */
+    color: #FF375F; /* Pinkish-red hover effect */
     text-decoration: underline;
 }
 
@@ -145,9 +157,9 @@ p {
 footer {
     text-align: center;
     margin-top: 50px;
-    background-color: #ECECEC; /* Light gray */
+    background-color: #3A3A3C; /* Slightly lighter dark gray */
     padding: 20px;
-    color: #777777;
+    color: #D1D1D6; /* Light gray text */
     font-size: 14px;
     border-radius: 8px;
 }
