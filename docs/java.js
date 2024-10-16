@@ -1,22 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const text = [
-      ">> Hi! I'm a soon-to-be graduate of UC Berkeley, where I'm completing a double major in Mathematics and Computer Science, plus a minor in Spanish. I have a deep love for math, particularly pure mathematics like mathematical logic and computation theory, and I enjoy applying these concepts to complex problems in computing.\n\n",
-      ">> I find the most rewarding experiences come from working in teams where collaboration sparks innovation. Throughout my academic journey, I’ve had the chance to lead, teach, and learn from others, which drives my passion for continuous growth in the tech world.\n\n",
-      ">> Outside the realm of code, I immerse myself in the arts. Whether it’s performing in a classical chorus, creating visual art, or learning new crafts like sewing and knitting, these activities keep my creativity flowing and influence how I approach problem-solving in software.\n\n",
-      ">> I’m excited to bring my skills and enthusiasm to a software development role, where I can continue learning and contribute to impactful projects. Let’s build something great together!"
-  ];
+  const text = [" >> Hi! I'm a soon-to-be graduate of UC Berkeley, where I'm completing a double major in Mathematics and Computer Science, plus a minor in Spanish. I have a deep love for math, particularly pure mathematics like mathematical logic and computation theory, and I enjoy applying these concepts to complex problems in computing.\n\n",
+        ">> I find the most rewarding experiences come from working in teams where collaboration sparks innovation. Throughout my academic journey, I’ve had the chance to lead, teach, and learn from others, which drives my passion for continuous growth in the tech world.\n\n",
+        ">> Outside the realm of code, I immerse myself in the arts. Whether it’s performing in a classical chorus, creating visual art, or learning new crafts like sewing and knitting, these activities keep my creativity flowing and influence how I approach problem-solving in software.\n\n",
+        ">> I’m excited to bring my skills and enthusiasm to a software development role, where I can continue learning and contribute to impactful projects. Let’s build something great together!"];
 
-  const asciiArt = `
-      __________
-    / ___________ \\
-    | | -       | |
-    | |         | |
-    | |_________| |________________________
-    \\=____________/  Thanks for visiting!  )
-    / """"""""""" \\                       /
-   / ::::::::::::: \\                  =D-'
-  (_________________)
-  `;
+  const asciiArt = `<pre class="ascii-art">
+    __________
+  / ___________ \\
+  | | -       | |
+  | |         | |
+  | |_________| |________________________
+  \\=____________/  Thanks for visiting!  )
+  / """"""""""" \\                       /
+ / ::::::::::::: \\                  =D-'
+(_________________)
+</pre>`;
 
   let i = 0;
   let j = 0;
@@ -48,8 +46,8 @@ document.addEventListener("DOMContentLoaded", function() {
           j = 0;
           setTimeout(typeWriter, speed);
       } else {
-          // Remove any newlines before appending the ASCII art and cursor
-          target.innerHTML = target.innerHTML.replace('<span class="cursor"></span>', '') + asciiArt.trimEnd() + '<span class="cursor blink"></span>';
+          // Add the ASCII art to the terminal after typing out the text
+          target.innerHTML = target.innerHTML.replace('<span class="cursor"></span>', '') + asciiArt.trim() + '<span class="cursor blink"></span>';
       }
   }
 
