@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Gill Sans', sans-serif;
+    font-family: 'Courier New', sans-serif;
     line-height: 1.6;
     color: #FFFFFF; /* White text */
     background-color: #1C1C1E; /* Dark background */
@@ -23,7 +23,11 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 0 0 20px rgba(10, 132, 255, 0.8); /* Permanent blue glow */
 }
+
+box-shadow: 0 0 30px rgba(10, 132, 255, 1);
+
 
 /* Navigation Styles */
 nav ul {
@@ -205,7 +209,67 @@ footer {
 }
 
 
-/* FLOWER SHIT STARTS HERE */
+/* About Terminal Section */
+#about-terminal {
+    margin: 50px 0; /* Add top and bottom margin for spacing */
+    padding: 30px; /* Same padding as other sections */
+    background: #2C2C2E; /* Dark gray background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); /* Subtle shadow for depth */
+    transition: transform 0.3s ease;
+    /*max-width: 800px; /* Limit width */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto; /* Center the section */
+    box-sizing: border-box; /* Ensure padding and width are in the box model */
+}
+
+/* General Section Styles */
+section {
+    margin: 50px 0; /* Ensure uniform spacing for all sections */
+    padding: 30px; /* Same padding as other sections */
+    background: #2C2C2E; /* Dark gray background for sections */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); /* Subtle shadow for depth */
+    transition: transform 0.3s ease;
+}
+
+
+/* Terminal Text */
+.terminal-text {
+    font-family: 'Courier New', Courier, monospace; /* Monospaced font for terminal look */
+    color: #0A84FF; /* Terminal-like text color */
+    white-space: pre-wrap;
+    overflow: hidden;
+    line-height: 1.6;
+    min-height: 200px; /* Ensure the box height */
+    margin: 0; /* Remove any extra margin */
+}
+
+/* Blinking cursor */
+/* Blinking cursor */
+.cursor {
+    border-left: 2px solid #0A84FF; /* Cursor visual */
+    animation: blink 1s step-end infinite; /* Blinking animation */
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
 
 
 
+/* Container for Languages and Skills (similar to About terminal style) */
+#languages-container, #skills-container {
+    margin: 50px 0; /* Add spacing similar to other containers */
+    padding: 30px;
+    background: #2C2C2E; /* Dark gray background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); /* Subtle shadow for depth */
+    transition: transform 0.3s ease;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto; /* Center the section */
+}
