@@ -20,13 +20,43 @@ header {
     padding: 20px;
     text-align: center;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     box-shadow: 0 0 20px rgba(10, 132, 255, 0.8); /* Permanent blue glow */
+    width: 100%; 
+    margin: 0 auto; /* Center the header */
 }
 
-box-shadow: 0 0 30px rgba(10, 132, 255, 1);
+.ascii-header {
+    font-family: 'Courier New', Courier, monospace; /* Monospaced font for ASCII art */
+    font-size: 5vw; /* Responsive font size based on viewport width */
+    text-align: center;
+    white-space: pre-wrap; /* Ensures wrapping without breaking the ASCII structure */
+    word-break: break-word; /* Prevents overflow by breaking long lines */
+    overflow: hidden; /* Prevents text from overflowing the container */
+    margin: 0 auto;
+    padding: 10px 0;
+    max-width: 100%; /* Ensures the ASCII art fits within the container */
+}
+
+
+@media (max-width: 768px) {
+    .ascii-header {
+        font-size: 5vw; /* Increase font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .ascii-header {
+        font-size: 7vw; /* Further increase font size for very small screens */
+    }
+}
+
+header p {
+    margin-top: 20px; /* Adds spacing between ASCII art and text */
+    color: #D1D1D6;
+    font-size: 18px;
+}
+
+
 
 
 /* Navigation Styles */
@@ -273,3 +303,6 @@ section {
     margin-left: auto;
     margin-right: auto; /* Center the section */
 }
+
+
+
