@@ -36,6 +36,19 @@ header {
     padding: 10px 0;
     max-width: 100%; /* Ensures the ASCII art fits within the container */
 }
+.ascii-art {
+    font-family: 'Courier New', Courier, monospace; /* Monospaced font */
+    white-space: pre; /* Preserve formatting */
+    display: block;
+    line-height: 1.2; /* Adjust for proper spacing */
+    text-align: center; /* Center-align the art */
+    margin: 0; /* Remove any extra margin */
+    padding: 0; /* Remove padding */
+}
+
+
+
+
 
 
 @media (max-width: 768px) {
