@@ -6,14 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
         ">> I’m excited to bring my skills and enthusiasm to a software development role, where I can continue learning and contribute to impactful projects. Let’s build something great together!\n\n"
     ];
 
-    const asciiArt = `
-        _   _      _ _         __  __ _       _       
-       | \\ | |    | | |       |  \\/  (_)     (_)      
-       |  \\| | ___| | | ___   | \\  / |_ _ __  _  __ _ 
-       | . \` |/ _ \\ | |/ _ \\  | |\\/| | | '_ \\| |/ _\` |
-       | |\\  |  __/ | | (_) | | |  | | | | | | | (_| |
-       |_| \\_|\\___|_|_|\\___/  |_|  |_|_|_| |_|_|\\__,_|
-    `;
+  
 
     let i = 0;
     let j = 0;
