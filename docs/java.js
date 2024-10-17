@@ -32,10 +32,9 @@ document.addEventListener("DOMContentLoaded", function() {
     let isTag = false;
     const speed = 10;
     const target = document.getElementById("about-terminal");
-    const cursor = document.querySelector(".cursor");
     let isResized = false;
-
-    // Function to set content and height
+    
+    // Function to set content and height dynamically
     function computeHeight() {
         target.innerHTML = asciiArt2 + text.join("") + asciiArt; // Set the full content temporarily
         const finalHeight = target.scrollHeight; // Calculate height
@@ -48,11 +47,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Resize handler
     window.addEventListener("resize", function() {
-        if (!isResized) {
-            isResized = true; // Mark resize has occurred
-            computeHeight(); // Recalculate height and display full text
-            displayFullText(); // Show the full text without re-typing after resize
-        }
+        computeHeight(); // Recalculate height on resize
+        displayFullText(); // Show the full text without retyping after resize
     });
 
     // Function to display full text without the typewriter effect (after resize)
