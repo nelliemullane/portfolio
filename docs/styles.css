@@ -25,6 +25,8 @@ header {
     margin: 0 auto; /* Center the header */
 }
 
+/* Updated ASCII art styling with maximum font size */
+
 .ascii-header {
     font-family: 'Courier New', Courier, monospace; /* Monospaced font for ASCII art */
     font-size: 1vw; /* Responsive font size based on viewport width */
@@ -35,37 +37,37 @@ header {
     margin: 0 auto;
     padding: 10px 0;
     max-width: 100%; /* Ensures the ASCII art fits within the container */
+    max-font-size: 30px; /* Set the maximum font size */
 }
+
 .ascii-art {
     font-family: 'Courier New', monospace; /* Monospaced font */
     white-space: pre; /* Keep spacing for ASCII art */
     display: block; /* Block to maintain proper line spacing */
-    font-size: 1.5vw; /* Responsive font size */
+    font-size:10px; /* Responsive font size */
     max-width: 100%; /* Ensure the ASCII art fits within the container */
-    /*max-height: 200px; /* Limit the height of the ASCII art */
     overflow: hidden; /* Prevent overflow */
     margin: 0 auto; /* Center it */
     line-height: 1.2; /* Adjust line spacing */
+    
 }
 
-
-
-
-
-
-
-
-@media (max-width: 768px) {
+/* For larger screens, limit the maximum font size */
+@media (min-width: 800px) {
     .ascii-header {
-        font-size: 5vw; /* Increase font size for smaller screens */
+        font-size: 10px; /* Fixed maximum size for larger screens */
+    }
+
+    .ascii-art {
+        font-size: 10px; /* Fixed maximum size for larger screens */
     }
 }
 
-@media (max-width: 480px) {
-    .ascii-header {
-        font-size: 7vw; /* Further increase font size for very small screens */
-    }
-}
+
+
+
+
+
 
 header p {
     margin-top: 20px; /* Adds spacing between ASCII art and text */
