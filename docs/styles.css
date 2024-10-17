@@ -312,6 +312,7 @@ footer {
 
 /* About Terminal Section */
 /* About Terminal Section */
+/* About Terminal Section */
 #about-terminal {
     margin: 50px 0; /* Add top and bottom margin for spacing */
     padding: 30px; /* Same padding as other sections */
@@ -319,28 +320,15 @@ footer {
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); /* Subtle shadow for depth */
     width: 100%;
-    /*max-width: 800px; /* Set max width to keep the section from expanding too much on large screens */
     margin-left: auto;
     margin-right: auto; /* Center the section */
     box-sizing: border-box; /* Ensure padding and width are in the box model */
     text-align: left;
-    overflow: auto; /* Add scrolling behavior for overflow */
-    max-height: 80vh; /* Limit the height to 80% of the viewport */
+    overflow: hidden; /* Initially hide overflow */
     transition: height 0.3s ease; /* Smooth transition for height changes */
 }
 
-/* Adjust the padding and spacing for smaller screens */
-@media (max-width: 768px) {
-    #about-terminal {
-        padding: 20px;
-    }
-}
 
-@media (max-width: 480px) {
-    #about-terminal {
-        padding: 15px;
-    }
-}
 
 
 /* General Section Styles */
