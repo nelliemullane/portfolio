@@ -65,7 +65,7 @@ target.style.height = `${finalHeight}px`; // Set the final height immediately
         setTimeout(typeWriter, speed);
       } else {
         // Append ASCII art after text
-        target.innerHTML = target.innerHTML.replace('<span class="cursor"></span>', '') + asciiArt.trim() + '>> '+'<span class="cursor blink"></span>';
+        target.innerHTML = target.innerHTML.replace('<span class="cursor"></span>', '') + asciiArt + '>> '+'<span class="cursor blink"></span>';
       }
     }
   
