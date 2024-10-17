@@ -27,7 +27,7 @@ header {
 
 .ascii-header {
     font-family: 'Courier New', Courier, monospace; /* Monospaced font for ASCII art */
-    font-size: 5vw; /* Responsive font size based on viewport width */
+    font-size: 1vw; /* Responsive font size based on viewport width */
     text-align: left;
     white-space: pre-wrap; /* Ensures wrapping without breaking the ASCII structure */
     word-break: break-word; /* Prevents overflow by breaking long lines */
@@ -37,33 +37,16 @@ header {
     max-width: 100%; /* Ensures the ASCII art fits within the container */
 }
 .ascii-art {
-    display: inline-block; /* Inline so the cursor stays on the same line */
+    font-family: 'Courier New', monospace; /* Monospaced font */
     white-space: pre; /* Keep spacing for ASCII art */
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 2vw; /* Font size based on the viewport width */
-    max-width: 300px; /* Set a maximum width for the ASCII art */
+    display: block; /* Block to maintain proper line spacing */
+    font-size: 1.5vw; /* Responsive font size */
+    max-width: 100%; /* Ensure the ASCII art fits within the container */
+    max-height: 200px; /* Limit the height of the ASCII art */
+    overflow: hidden; /* Prevent overflow */
     margin: 0 auto; /* Center it */
     line-height: 1.2; /* Adjust line spacing */
-  }
-  
-  /* You can further adjust the font size for different screen sizes */
-  @media (max-width: 768px) {
-    .ascii-art {
-      font-size: 3vw; /* Make the font larger for mid-sized screens */
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .ascii-art {
-      font-size: 4vw; /* Increase font size for smaller screens */
-    }
-  }
-  
-  @media (max-width: 320px) {
-    .ascii-art {
-      font-size: 5vw; /* Further increase font size for very small screens */
-    }
-  }
+}
 
 
 
@@ -324,16 +307,23 @@ section {
 }
 
 
-/* Terminal Text */
 .terminal-text {
-    font-family: 'Courier New', Courier, monospace; /* Monospaced font for terminal look */
-    color: #0A84FF; /* Terminal-like text color */
+    font-family: 'Courier New', Courier, monospace;
+    color: #0A84FF;
     white-space: pre-wrap;
     overflow: hidden;
     line-height: 1.6;
-    min-height: 200px; /* Ensure the box height */
-    margin: 0; /* Remove any extra margin */
+    min-height: 200px;
+    margin: 0; /* Ensure no extra margin */
+    text-align: left; /* Ensure left alignment */
 }
+
+.terminal-text p {
+    margin: 0;
+    padding: 0;
+}
+
+
 
 /* Blinking cursor */
 /* Blinking cursor */
