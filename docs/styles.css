@@ -25,8 +25,6 @@ header {
     margin: 0 auto; /* Center the header */
 }
 
-/* Updated ASCII art styling with maximum font size */
-
 .ascii-header {
     font-family: 'Courier New', Courier, monospace; /* Monospaced font for ASCII art */
     font-size: 1vw; /* Responsive font size based on viewport width */
@@ -37,37 +35,37 @@ header {
     margin: 0 auto;
     padding: 10px 0;
     max-width: 100%; /* Ensures the ASCII art fits within the container */
-    max-font-size: 30px; /* Set the maximum font size */
 }
-
 .ascii-art {
     font-family: 'Courier New', monospace; /* Monospaced font */
     white-space: pre; /* Keep spacing for ASCII art */
     display: block; /* Block to maintain proper line spacing */
-    font-size:10px; /* Responsive font size */
+    font-size: 1.5vw; /* Responsive font size */
     max-width: 100%; /* Ensure the ASCII art fits within the container */
+    max-height: 200px; /* Limit the height of the ASCII art */
     overflow: hidden; /* Prevent overflow */
     margin: 0 auto; /* Center it */
     line-height: 1.2; /* Adjust line spacing */
-    
 }
 
-/* For larger screens, limit the maximum font size */
-@media (min-width: 800px) {
+
+
+
+
+
+
+
+@media (max-width: 768px) {
     .ascii-header {
-        font-size: 10px; /* Fixed maximum size for larger screens */
-    }
-
-    .ascii-art {
-        font-size: 10px; /* Fixed maximum size for larger screens */
+        font-size: 5vw; /* Increase font size for smaller screens */
     }
 }
 
-
-
-
-
-
+@media (max-width: 480px) {
+    .ascii-header {
+        font-size: 7vw; /* Further increase font size for very small screens */
+    }
+}
 
 header p {
     margin-top: 20px; /* Adds spacing between ASCII art and text */
@@ -217,6 +215,36 @@ section {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* Increase shadow */
 }
 
+/* Container for the video */
+.video-container {
+    position: relative;
+    width: 100%; /* Make the container take full width */
+    padding-bottom: 56.25%; /* Aspect ratio: 16:9 */
+    height: 0; /* Set height to zero to maintain aspect ratio */
+    overflow: hidden; /* Hide overflow */
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+/* Responsive video */
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%; /* Ensure the video doesn't exceed the container width */
+    object-fit: cover; /* Ensures video scales while maintaining aspect ratio */
+}
+
+/* Hover effect */
+.video-container:hover {
+    transform: scale(1.05); /* Grow the video on hover */
+    box-shadow: 0 0 20px rgba(10, 132, 255, 0.8); /* Add a shadow to enhance effect */
+}
+
+
+
+
 /* Computer Graphics Project Links */
 .project a {
     color: #0A84FF; /* Bright blue for project links */
@@ -283,25 +311,20 @@ footer {
 
 
 /* About Terminal Section */
-/* About Terminal Section */
-/* About Terminal Section */
 #about-terminal {
     margin: 50px 0; /* Add top and bottom margin for spacing */
     padding: 30px; /* Same padding as other sections */
     background: #2C2C2E; /* Dark gray background */
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); /* Subtle shadow for depth */
+    transition: transform 0.3s ease;
+    /*max-width: 800px; /* Limit width */
     width: 100%;
     margin-left: auto;
     margin-right: auto; /* Center the section */
     box-sizing: border-box; /* Ensure padding and width are in the box model */
     text-align: left;
-    overflow: hidden; /* Initially hide overflow */
-    transition: height 0.3s ease; /* Smooth transition for height changes */
 }
-
-
-
 
 /* General Section Styles */
 section {
