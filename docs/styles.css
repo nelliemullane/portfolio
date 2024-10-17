@@ -37,15 +37,33 @@ header {
     max-width: 100%; /* Ensures the ASCII art fits within the container */
 }
 .ascii-art {
-    font-family: 'Courier New', Courier, monospace; /* Monospaced font */
-    white-space: pre; /* Preserve formatting */
-    display: inline-block;
-    line-height: 1.2; /* Adjust for proper spacing */
-    text-align: left; /* Center-align the art */
-    margin: 0; /* Remove any extra margin */
-    padding: 0; /* Remove padding */
-    font-size: 3vw;
-}
+    display: inline-block; /* Inline so the cursor stays on the same line */
+    white-space: pre; /* Keep spacing for ASCII art */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2vw; /* Font size based on the viewport width */
+    max-width: 300px; /* Set a maximum width for the ASCII art */
+    margin: 0 auto; /* Center it */
+    line-height: 1.2; /* Adjust line spacing */
+  }
+  
+  /* You can further adjust the font size for different screen sizes */
+  @media (max-width: 768px) {
+    .ascii-art {
+      font-size: 3vw; /* Make the font larger for mid-sized screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .ascii-art {
+      font-size: 4vw; /* Increase font size for smaller screens */
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .ascii-art {
+      font-size: 5vw; /* Further increase font size for very small screens */
+    }
+  }
 
 
 
@@ -138,9 +156,33 @@ nav ul li a:hover {
 
 .header-content h1 {
     margin: 10px 0;
-    font-size: 36px;
+    font-size: 5vw; /* Responsive font size based on the viewport width */
     font-weight: bold;
+    color: #FFFFFF; /* White text */
+    text-align: center;
+    max-width: 100%; /* Ensure the text doesn't overflow */
 }
+
+/* For larger screens, limit the maximum font size */
+@media (min-width: 1024px) {
+    .header-content h1 {
+        font-size: 50px; /* Fixed maximum size for larger screens */
+    }
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .header-content h1 {
+        font-size: 6vw; /* Increase font size for mid-sized screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content h1 {
+        font-size: 7vw; /* Further increase font size for small screens */
+    }
+}
+
 
 .header-content p {
     font-size: 18px;

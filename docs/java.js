@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const text = [" >> Hi! I'm a soon-to-be graduate of UC Berkeley, where I'm completing a double major in Mathematics and Computer Science, plus a minor in Spanish. I have a deep love for math, particularly pure mathematics like mathematical logic and computation theory, and I enjoy applying these concepts to complex problems in computing.\n\n",
+  const text = [" >> Hi! I'm a soon-to-be graduate of UC Berkeley, where I'm completing a double major in Mathematics and Computer Science, plus a minor in Spanish. I have a deep love for math, particularly pure mathematics including mathematical logic and computation theory, and I enjoy applying these concepts to complex problems in computing.\n\n",
         ">> I find the most rewarding experiences come from working in teams where collaboration sparks innovation. Throughout my academic journey, I’ve had the chance to lead, teach, and learn from others, which drives my passion for continuous growth in the tech world.\n\n",
-        ">> Outside the realm of code, I immerse myself in the arts. Whether it’s performing in a classical chorus, creating visual art, or learning new crafts like sewing and knitting, these activities keep my creativity flowing and influence how I approach problem-solving in software.\n\n",
-        ">> I’m excited to bring my skills and enthusiasm to a software development role, where I can continue learning and contribute to impactful projects. Let’s build something great together!"];
+        ">> Outside the realm of code, I immerse myself in the arts. Whether it’s performing in a classical chorus, playing guitar, studying realism, or learning new crafts like embroidery and knitting, these activities keep my creativity flowing and influence how I approach problem-solving in software.\n\n",
+        ">> I’m excited to bring my skills and enthusiasm to a software development role, where I can continue learning and contribute to impactful projects. Let’s build something great together!\n"];
 
   const asciiArt = `<pre class="ascii-art">
     __________
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
   let i = 0;
   let j = 0;
   let isTag = false;
-  const speed = 15; // Typing speed in milliseconds
+  const speed = 10; // Typing speed in milliseconds
   const target = document.getElementById("about-terminal");
   const cursor = document.querySelector(".cursor");
 
