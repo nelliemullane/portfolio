@@ -385,3 +385,35 @@ section {
 
 
 
+/* Sticky Footer */
+.sticky-footer {
+    position: sticky;
+    bottom: 0;
+    background-color: #2C2C2E; /* Matches other sections' background */
+    color: #FFFFFF; /* White text */
+    padding: 15px 20px; /* Add some padding for spacing */
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.6); /* Subtle shadow for depth */
+    z-index: 100; /* Ensure it stays above other elements */
+}
+
+.sticky-footer a {
+    color: #0A84FF; /* Bright blue links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sticky-footer a:hover {
+    color: #FF375F; /* Pinkish-red on hover */
+    text-decoration: underline;
+}
+
+.sticky-footer ul {
+    list-style: none;
+    margin: 10px 0 0;
+    padding: 0;
+}
+
+.sticky-footer ul li {
+    margin: 5px 0;
+}

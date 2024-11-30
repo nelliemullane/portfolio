@@ -281,22 +281,208 @@
   
     </section>
 
-    <!-- Contact Section -->
-    <style>
-        #contact ul {
-          margin-top: 10px; /* Adjust the value to control the space */
-        }
-      </style>
-      
-      <section id="contact">
-          <h2>Contact</h2>
-          <p>Feel free to reach out via email or check out my LinkedIn:</p>
-          
-          <ul>
-              <li>Email Me: <a href="mailto:nem123@berkeley.edu">nem123@berkeley.edu</a></li>
-              <li>LinkedIn: <a href="https://www.linkedin.com/in/nellie-mullane" target="_blank">www.linkedin.com/in/nellie-mullane</a></li>
-          </ul>
-      </section>
+    <section id="creative-logic-math">
+        <h2>Creative Logic and Mathematics</h2>
+        <div class="project">
+            <h3>Cantor Set Proof</h3>
+            <p>
+                <br> 
+                My proof addresses the claim: <strong>"The Cantor set is compact and equal to the set of its cluster points."</strong><br>
+                <br> 
+        
+                This proof seeks to go beyond standard explanations of this claim by eliminating logical jumps and ensuring all claims are rigorously justified.<br>
+                That is, many proofs of this result rely on statements that are left unexplained or are considered "trivially true," which I sought to avoid entirely.<br>
+                <br> 
+                The Cantor set is an interesting mathematical construct that, despite being uncountably infinite (having a cardinality equal to that of the real numbers), possesses a Lebesgue measure of zero, meaning it occupies no length on the number line. This paradoxical nature—being vast in terms of cardinality yet negligible in measure—offers profound insights into set theory and the concept of infinity.<br>
+                <br> 
+                In less mathematical terms, this claim states that the Cantor set is both well-contained within finite boundaries and made up entirely of points that are "densely surrounded" by others, even as we zoom infinitely into its structure.<br>
+                <br> 
+                Key terms explained in the proof include:<br>
+                <ul>
+                    <li><strong>The Cantor set:</strong> The Cantor set is constructed by iteratively removing the open middle third from each interval segment. Starting with the closed interval [0, 1], the open middle third (1/3, 2/3) is removed, leaving two segments: [0, 1/3] and [2/3, 1]. This process is repeated for each remaining segment, continually removing the open middle third from each. <a href="https://en.wikipedia.org/wiki/Cantor_set" target="_blank">[Wikipedia]</a></li>
+                    <li><strong>Compactness:</strong> A set is compact if every collection of open sets that covers the set has a finite subcollection that also covers it. In Euclidean spaces, compactness is equivalent to being both closed (containing all its limit points) and bounded (fitting within a finite region). <a href="https://en.wikipedia.org/wiki/Compact_space" target="_blank">[Wikipedia]</a></li>
+                    <li><strong>Cluster points:</strong> Points for which every neighborhood (region around a point) contains infinitely many points of the set. <a href="https://en.wikipedia.org/wiki/Accumulation_point" target="_blank">[Wikipedia]</a></li>
+                </ul>
+                <br> 
+                You can view the full proof below:
+            </p>
+            <a href="Cantor_set.pdf" target="_blank" class="project-link">View Cantor Set Proof (PDF)</a>
+        </div>
+        <h3>Turing Machines</h3>
+        <br>
+        <div class = "project">
+            
+            <strong> the following sections are Turing Machines that I designed and Implemented!</strong>
+            <br> 
+            <br> 
+
+            <p>
+                A <strong>Turing machine</strong> is a theoretical computational model that manipulates symbols on an infinite tape according to a set of rules. It serves as a fundamental concept in theoretical computer science, helping to define the limits of what can be computed. 
+                
+              </p>
+              <br>
+              <h3>Key Components:</h3>
+              <ul>
+                <li><strong>Tape:</strong> An infinite memory divided into discrete cells, each capable of holding a symbol from a finite alphabet.</li>
+                <li><strong>Head:</strong> A read/write mechanism that moves across the tape, reading symbols and writing new ones based on the machine's rules.</li>
+                <li><strong>State Register:</strong> Stores the current state of the Turing machine, chosen from a finite set of states.</li>
+                <li><strong>Transition Function:</strong> Defines the machine's actions (write a symbol, move the head, change state) based on the current state and the symbol being read.</li>
+              </ul>
+
+              <br> 
+            
+              
+              <p>In computational theory, Turing machines are categorized into two types:</p>
+              
+              <ul>
+                <li>
+                  <strong>Deciders:</strong> These machines halt on every input, either accepting or rejecting it, thereby deciding whether a given input string belongs to a specific language. 
+                 
+                </li>
+                <li>
+                  <strong>Computable Function Machines:</strong> These machines transform input strings into output strings, effectively computing functions from one set of strings to another. 
+                 
+                </li>
+              </ul>
+
+              <br>
+              
+              <p>
+                For a more detailed exploration, refer to the 
+                <a href="https://en.wikipedia.org/wiki/Turing_machine" target="_blank">Wikipedia article on Turing machines</a>.
+              </p>
+              <br>
+
+              <h3>How to use and interpret the below simulations </h3>
+              <br>
+
+              In the below Turing Machine simulators, you can input a string that serves as the initial content of the Turing machine's tape.
+              <br><br> The simulation processes this input step by step, displaying the tape's content and the position of the read/write head at each stage. 
+              
+              <br> <br>The symbol ^ indicates the current position of the head, allowing you to observe how the machine reads, writes, and moves across the tape during its computation.
+              <br> <br>
+
+              
+        </div>
+
+        <div id="tm-section-1" class="project">
+            <h3>Language Decision: MOD 2</h3>
+            <p>Description: This Turing machine decides whether the number of '1's in the input is even (MOD 2). It accepts if the number of '1's is even and rejects otherwise.</p>
+            
+            <input type="text" class="tm-input" placeholder="Enter tape input (e.g., '1011')" />
+            <button class="tm-run-btn">Run</button>
+            
+            <p>Final State: <span class="tm-state"></span></p>
+            <p>Final Tape: <span class="tm-tape"></span></p>
+            <p>Steps: <span class="tm-steps"></span></p>
+            <p>Result: <span class="tm-result"></span></p>
+            <div class="tm-log"></div>
+        </div>
+        
+        <div id="tm-section-2" class="project">
+            <h3>Function Computation: push</h3>
+            <p>Description: This Turing machine computes the function push: {0, 1}<sup>*</sup> → {0, 1, $}<sup>*</sup>, where push(w) appends a '$' character to the beginning of string w (e.g., 101 → $101).</p>
+            <input type="text" class="tm-input" placeholder="Enter tape input (e.g., '101')" />
+            <button class="tm-run-btn">Run</button>
+            
+            <p>Final State: <span class="tm-state"></span></p>
+            <p>Final Tape: <span class="tm-tape"></span></p>
+            <p>Steps: <span class="tm-steps"></span></p>
+            <p>Result: <span class="tm-result"></span></p>
+            <div class="tm-log"></div>
+        </div>
+        
+        <div id="tm-section-3" class="project">
+            <h3>Language Decision: Palindromic Strings Around #</h3>
+            <p>Description: This Turing machine decides whether the string on the left side of the '#' is the same as the string on the right side. For example, it accepts '0110#0110' but rejects '011#110'.</p>
+            <input type="text" class="tm-input" placeholder="Enter tape input (e.g., '0110#0110')" />
+            <button class="tm-run-btn">Run</button>
+            
+            <p>Final State: <span class="tm-state"></span></p>
+            <p>Final Tape: <span class="tm-tape"></span></p>
+            <p>Steps: <span class="tm-steps"></span></p>
+            <p>Result: <span class="tm-result"></span></p>
+            <div class="tm-log"></div>
+        </div>
+        
+        <div id="tm-section-4" class="project">
+            <h3>Function Computation: plus1</h3>
+            <p>Description: This Turing machine computes the function plus1: {0, 1}<sup>*</sup> → {0, 1}<sup>*</sup>, interpreting the input as a binary number from least-significant bit (LSB) to most-significant bit (MSB). It outputs the binary representation of the input number plus one, processed bit by bit. For example, 101 (binary for 5) → 011 (binary for 6).</p>
+            <input type="text" class="tm-input" placeholder="Enter tape input (e.g., '101')" />
+            <button class="tm-run-btn">Run</button>
+            
+            <p>Final State: <span class="tm-state"></span></p>
+            <p>Final Tape: <span class="tm-tape"></span></p>
+            <p>Steps: <span class="tm-steps"></span></p>
+            <p>Result: <span class="tm-result"></span></p>
+            <div class="tm-log"></div>
+        </div>
+        
+        
+        <div id="tm-section-5" class="project">
+            <h3>Function Computation: unary2binary</h3>
+            <p>Description: This Turing machine computes the function unary2binary: {1}<sup>*</sup> → {0, 1}<sup>*</sup>, converting unary strings to their binary representation. The binary representation is processed and printed from least-significant bit (LSB) to most-significant bit (MSB), appearing reversed to us. For example, 111 (unary representation of 3) → 11 (binary representation of 3, printed as 11 from LSB to MSB).</p>
+            <input type="text" class="tm-input" placeholder="Enter tape input (e.g., '111')" />
+            <button class="tm-run-btn">Run</button>
+            
+            <p>Final State: <span class="tm-state"></span></p>
+            <p>Final Tape: <span class="tm-tape"></span></p>
+            <p>Steps: <span class="tm-steps"></span></p>
+            <p>Result: <span class="tm-result"></span></p>
+            <div class="tm-log"></div>
+        </div>
+        
+        
+        <div id="tm-section-6" class="project">
+            <h3>Language Decision: {a<sup>i</sup>b<sup>j</sup>c<sup>k</sup> | i, j, k ∈ Z≥0, i < j < k}</h3>
+            <p>Description: This Turing machine decides the language L = {a<sup>i</sup>b<sup>j</sup>c<sup>k</sup> | i, j, k ∈ Z≥0, i < j < k}. It checks whether the counts of 'a's, 'b's, and 'c's satisfy the strict inequality i < j < k (e.g., abbccc is accepted, but aabbccc is rejected).</p>
+            <input type="text" class="tm-input" placeholder="Enter tape input (e.g., 'abbccc')" />
+            <button class="tm-run-btn">Run</button>
+            
+            <p>Final State: <span class="tm-state"></span></p>
+            <p>Final Tape: <span class="tm-tape"></span></p>
+            <p>Steps: <span class="tm-steps"></span></p>
+            <p>Result: <span class="tm-result"></span></p>
+            <div class="tm-log"></div>
+        </div>
+        
+        
+        <div id="tm-section-7" class="project">
+            <h3>Language Decision: {a<sup>k</sup> | k is a power of 2}</h3>
+            <p>Description: This Turing machine decides the language L = {a<sup>k</sup> | k is a power of 2}, where k ∈ {1, 2, 4, 8, ...}. It identifies strings of 'a' whose lengths are powers of 2.</p>
+            <input type="text" class="tm-input" placeholder="Enter tape input (e.g., 'aaaa')" />
+            <button class="tm-run-btn">Run</button>
+            
+            <p>Final State: <span class="tm-state"></span></p>
+            <p>Final Tape: <span class="tm-tape"></span></p>
+            <p>Steps: <span class="tm-steps"></span></p>
+            <p>Result: <span class="tm-result"></span></p>
+            <div class="tm-log"></div>
+        </div>
+        
+        
+        
+        
+        
+        
+
+        
+        
+    </section>
+    
+
+    
+
+
+
+      <footer class="sticky-footer">
+        <p>Feel free to reach out via email or check out my LinkedIn:</p>
+        <ul>
+            <li>Email Me: <a href="mailto:nem123@berkeley.edu">nem123@berkeley.edu</a></li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/nellie-mullane" target="_blank">www.linkedin.com/in/nellie-mullane</a></li>
+        </ul>
+    </footer>
+    
 
     <!-- Footer -->
     <footer>
