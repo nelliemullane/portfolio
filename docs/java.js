@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const text = [
-      ">> Hi! I'm a soon-to-be graduate of UC Berkeley, where I'm completing a double major in Mathematics and Computer Science, plus a minor in Spanish. I have a deep love for math, particularly pure mathematics including mathematical logic and computation theory, and I enjoy applying these concepts to complex problems in computing.\n\n",
-      ">> I find the most rewarding experiences come from working in teams where collaboration sparks innovation. Throughout my academic journey, I’ve had the chance to lead, teach, and learn from others, which drives my passion for continuous growth in the tech world.\n\n",
-      ">> Outside the realm of code, I immerse myself in the arts. Whether it’s performing in a classical chorus, playing guitar, studying realism, or learning new crafts like embroidery and knitting, these activities keep my creativity flowing and influence how I approach problem-solving in software.\n\n",
-      ">> I’m excited to bring my skills and enthusiasm to a software development role, where I can continue learning and contribute to impactful projects. Let’s build something great together!\n"
-    ];
+  const text = [
+    ">> Hi! I'm a recent graduate of UC Berkeley with a double major in Mathematics and Computer Science and a minor in Spanish. I have a deep love for math, particularly pure mathematics, including mathematical logic and computation theory, and I enjoy applying these concepts to complex computing problems.\n\n",
+    
+    ">> I thrive in collaborative environments where teamwork fuels innovation. Whether leading development, teaching others, or tackling new challenges, I’m always eager to grow and contribute to meaningful projects.\n\n",
+    
+    ">> Beyond coding, I immerse myself in the arts—singing in a classical chorus, playing guitar, and exploring visual arts like charcoal drawing and fiber art. Creativity shapes my approach to problem-solving, and I'm excited to bring my skills and passion to a dynamic software development team.\n"
+  ];
+  
   
     const asciiArt = `<pre class="ascii-art">
       __________
