@@ -37,6 +37,9 @@ p {
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02);
   white-space: pre-wrap;
   font-size: 14.5px;
+  max-width: 100%; /* prevent overflow */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .explanation p {
@@ -203,7 +206,9 @@ const people = [
         const attendees = people.map(peep => peep.attendance[day] || 0).reduce((a, b) => a + b, 0);
         const share = attendees > 0 ? ((fraction || 0) / attendees) * (dayCosts[day] || 0) : 0;
         total += share;
-        lines.push(`  - ${fraction} of ${day}, owing $${share.toFixed(2)}`);
+        const displayFraction = fraction === 1 ? "all" : fraction;
+        lines.push(`  - ${displayFraction} of ${day}, owing $${share.toFixed(2)}`);
+
       }
       lines.push(`  => Total owed: $${total.toFixed(2)}`);
       lines.push(`  => Paid: $${(personPaid[p.name] || 0).toFixed(2)}`);
