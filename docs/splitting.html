@@ -205,6 +205,13 @@ const people = [
 } else {
   lines.push("\nEveryone has settled up correctly.");
 }
+lines.push(`FORMULAS USED:\n`);
+lines.push(`1. Total trip cost = sum of all expenses`);
+lines.push(`2. Cost of a day = (day's weight ÷ total weight of all days) × total trip cost`);
+lines.push(`3. Person's share of a day = (person's attendance weight on that day ÷ total attendance weight that day) × cost of the day`);
+lines.push(`4. Net balance = amount paid − amount owed`);
+lines.push(`5. Settlements match people with negative balances to those with positive balances until everyone nets to $0`);
+lines.push(`\n`);
 
 
     document.getElementById("output").textContent = lines.join("\n");

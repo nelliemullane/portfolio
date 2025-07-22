@@ -1,7 +1,7 @@
 {
-    "outputDirectory": "docs",
-    "rewrites": [
-      { "source": "/", "destination": "/index.html" }
-    ]
-  }
-  
+  "outputDirectory": "docs",
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/splitting", "destination": "/splitting.html" }
+  ]
+}
