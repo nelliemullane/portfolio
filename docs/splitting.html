@@ -6,74 +6,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Camping 2025: Debt Be Gone</title>
   <style>
-    body {
-      font-family: system-ui, sans-serif;
-      padding: 2rem;
-      background: #f0f4f9;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    h1, h2 {
-  color: #4b6cb7; /* A nice blue gradient start */
-  background: linear-gradient(to right, #4b6cb7, #182848);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-
+   body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  color: #1f2937; /* Dark grey */
+  line-height: 1.6;
+  font-size: 16px;
 }
 
+h1, h2 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+  letter-spacing: -0.01em;
+  background: linear-gradient(to right, #6366f1, #38bdf8); /* soft indigo to sky blue */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-    p {
-      margin-bottom: 1rem;
-      color: #34495e;
-    }
-
-    .explanation {
-      background: #ffffff;
-      border: 1px solid #ccd6dd;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-      white-space: pre-wrap;
-    }
-    details {
+p {
   margin-bottom: 1rem;
-  background: #f9f9f9;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  padding: 0.5rem 1rem;
+  color: #374151;
+  max-width: 720px;
+}
+
+.explanation {
+  background-color: #ffffff;
+  border: 1px solid #e0e7ff; /* subtle indigo tint */
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  white-space: pre-wrap;
+  font-size: 15px;
+}
+
+.explanation p {
+  margin: 0.4rem 0;
+}
+
+.explanation p:nth-child(odd) {
+  background-color: #f0f9ff; /* pale sky blue */
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+}
+
+.explanation p:nth-child(even) {
+  background-color: #fef6fb; /* pale pink/purple */
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+}
+
+details {
+  margin-bottom: 1.25rem;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0; /* light gray-blue */
+  padding: 0.75rem 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.2s ease;
+}
+
+details:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 summary {
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
-  color: #2c3e50;
-  font-size: 1.05rem;
+  color: #3b82f6; /* soft blue accent */
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
 }
 
 details pre {
   margin: 0.5rem 0 0 0;
   white-space: pre-wrap;
   font-family: inherit;
+  font-size: 0.95rem;
+  color: #374151;
 }
 
-
-    .explanation p {
-      margin: 0.5rem 0;
-    }
-
-    .explanation p:nth-child(odd) {
-      background-color: #e3f2fd;
-      padding: 0.3rem 0.6rem;
-      border-radius: 4px;
-    }
-
-    .explanation p:nth-child(even) {
-      background-color: #fef9e7;
-      padding: 0.3rem 0.6rem;
-      border-radius: 4px;
-    }
   </style>
 </head>
 <body>
