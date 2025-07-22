@@ -14,11 +14,15 @@
       line-height: 1.6;
     }
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      color: #2c3e50;
-    }
+    h1, h2 {
+  color: #4b6cb7; /* A nice blue gradient start */
+  background: linear-gradient(to right, #4b6cb7, #182848);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+
+}
+
 
     p {
       margin-bottom: 1rem;
@@ -33,6 +37,27 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
       white-space: pre-wrap;
     }
+    details {
+  margin-bottom: 1rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+}
+
+summary {
+  font-weight: bold;
+  cursor: pointer;
+  color: #2c3e50;
+  font-size: 1.05rem;
+}
+
+details pre {
+  margin: 0.5rem 0 0 0;
+  white-space: pre-wrap;
+  font-family: inherit;
+}
+
 
     .explanation p {
       margin: 0.5rem 0;
@@ -53,7 +78,7 @@
 </head>
 <body>
   <h1>Trip Expense Splitter</h1>
-  <p>This app shows a detailed breakdown of who paid what and how much each person owes.</p>
+  <p>Hey queens, here is what everyone owes.thanks for the patience LOL and apologies if this is anti-climatic hehe. I temporarily abandoned my splitting app and made this simple page to get the job done for rn . formulas used at the bottom if you wanna verify my math lmao.</p>
 
   <div class="explanation" id="output"></div>
 
@@ -214,7 +239,52 @@ lines.push(`5. Settlements match people with negative balances to those with pos
 lines.push(`\n`);
 
 
-    document.getElementById("output").textContent = lines.join("\n");
+    // === GROUP AND INJECT DROPDOWN SECTIONS ===
+const outputDiv = document.getElementById("output");
+
+function createDropdown(title, contentLines) {
+  const details = document.createElement("details");
+  details.open = true;
+
+  const summary = document.createElement("summary");
+  summary.textContent = title;
+
+  const pre = document.createElement("pre");
+  pre.textContent = contentLines.join("\n");
+
+  details.appendChild(summary);
+  details.appendChild(pre);
+  return details;
+}
+
+function extractSection(startMatch, endMatch) {
+  const startIdx = lines.findIndex(line => line.trim().startsWith(startMatch.trim()));
+  const endIdx = endMatch
+    ? lines.findIndex((line, i) => i > startIdx && line.trim().startsWith(endMatch.trim()))
+    : lines.length;
+  return startIdx !== -1 ? lines.slice(startIdx, endIdx) : [];
+}
+
+
+
+// Build sections
+outputDiv.appendChild(createDropdown("Total Trip Cost", extractSection("Total trip cost:", "Day weights:")));
+outputDiv.appendChild(createDropdown("Day Weights", extractSection("Day weights:", "Individual breakdowns:")));
+outputDiv.appendChild(createDropdown("Individual Breakdowns", extractSection("Individual breakdowns:", "Per-day cost justification:")));
+outputDiv.appendChild(createDropdown("Per-Day Cost Justification", extractSection("Per-day cost justification:", "Settlement suggestions:")));
+
+const hasSettlement = lines.some(l => l.startsWith("Settlement suggestions:") || l.startsWith("Everyone has settled up correctly."));
+
+if (hasSettlement) {
+  const settleStart = lines.findIndex(l => l.startsWith("Settlement suggestions:") || l.startsWith("Everyone has settled up correctly."));
+  const formulasStart = lines.findIndex(l => l.startsWith("FORMULAS USED:"));
+  outputDiv.appendChild(createDropdown("Settlement Suggestions", lines.slice(settleStart, formulasStart)));
+}
+
+outputDiv.appendChild(createDropdown("Formulas Used", lines.slice(lines.findIndex(l => l.startsWith("FORMULAS USED:")))));
+
   </script>
+
+  
 </body>
 </html>
