@@ -367,11 +367,20 @@ for (const { name, lines } of daySections) {
 outputDiv.appendChild(dayDrop);
 
 
-const hasSettlement = lines.some(l => l.startsWith("Settlement suggestions:") || l.startsWith("Everyone has settled up correctly."));
+const hasSettlement = lines.some(l =>
+  l.trim().startsWith("Settlement suggestions:") ||
+  l.trim().startsWith("Everyone has settled up correctly.")
+);
 
 if (hasSettlement) {
-  const settleStart = lines.findIndex(l => l.startsWith("Settlement suggestions:") || l.startsWith("Everyone has settled up correctly."));
-  const formulasStart = lines.findIndex(l => l.startsWith("FORMULAS USED:"));
+    const settleStart = lines.findIndex(l =>
+  l.trim().startsWith("Settlement suggestions:") ||
+  l.trim().startsWith("Everyone has settled up correctly.")
+);
+const formulasStart = lines.findIndex(l =>
+  l.trim().startsWith("FORMULAS USED:")
+);
+
   outputDiv.appendChild(createDropdown("Settlement Suggestions", lines.slice(settleStart, formulasStart)));
 }
 
