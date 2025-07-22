@@ -258,7 +258,7 @@ const outputDiv = document.getElementById("output");
 
 function createDropdown(title, contentLines) {
   const details = document.createElement("details");
-  details.open = true;
+  details.open = false;
 
   const summary = document.createElement("summary");
   summary.textContent = title;
@@ -289,7 +289,42 @@ function extractSection(startMatch, endMatch) {
 // Build sections
 outputDiv.appendChild(createDropdown("Trip Total", extractSection("Trip total:", "Day weights:")));
 outputDiv.appendChild(createDropdown("Day Weights", extractSection("Day weights:", "Individual breakdowns:")));
-outputDiv.appendChild(createDropdown("Individual Breakdowns", extractSection("Individual breakdowns:", "Per-day cost justification:")));
+const indivStart = lines.findIndex(l => l.trim().startsWith("Individual breakdowns:"));
+const indivEnd = lines.findIndex((l, i) => i > indivStart && l.trim().startsWith("Per-day cost justification:"));
+const individualLines = lines.slice(indivStart + 1, indivEnd);
+
+// Group by person
+const personSections = [];
+let i = 0;
+while (i < individualLines.length) {
+  const header = individualLines[i];
+  if (!header || !header.endsWith("was present:")) {
+    i++;
+    continue;
+  }
+  const personName = header.split(" ")[0];
+  let j = i + 1;
+  while (j < individualLines.length && !individualLines[j].endsWith("was present:")) j++;
+  const content = individualLines.slice(i, j);
+  personSections.push({ name: personName, lines: content });
+  i = j;
+}
+
+// Create main "Individual Breakdowns" dropdown
+const indivDrop = document.createElement("details");
+indivDrop.open = false;
+
+const indivSummary = document.createElement("summary");
+indivSummary.textContent = "Individual Breakdowns";
+indivDrop.appendChild(indivSummary);
+
+// Nest each person's breakdown
+for (const { name, lines } of personSections) {
+  indivDrop.appendChild(createDropdown(name, lines));
+}
+
+outputDiv.appendChild(indivDrop);
+
 outputDiv.appendChild(createDropdown("Per-Day Cost Justification", extractSection("Per-day cost justification:", "Settlement suggestions:")));
 
 const hasSettlement = lines.some(l => l.startsWith("Settlement suggestions:") || l.startsWith("Everyone has settled up correctly."));
