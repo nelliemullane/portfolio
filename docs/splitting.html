@@ -7,38 +7,36 @@
   <title>Camping 2025: Debt Be Gone</title>
   <style>
    body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
   padding: 2rem;
-  background-color: #f8f9fa;
-  color: #1f2937; /* Dark grey */
+  background-color: #0d1117;
+  color: #c9d1d9;
   line-height: 1.6;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 h1, h2 {
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: #1e293b;
-  letter-spacing: -0.01em;
-  background: linear-gradient(to right, #6366f1, #38bdf8); /* soft indigo to sky blue */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 1.75rem;
+  color: #79c0ff; /* soft terminal blue */
+  text-shadow: 0 0 2px rgba(121, 192, 255, 0.3);
 }
 
 p {
   margin-bottom: 1rem;
-  color: #374151;
+  color: #c9d1d9;
   max-width: 720px;
 }
 
 .explanation {
-  background-color: #ffffff;
-  border: 1px solid #e0e7ff; /* subtle indigo tint */
+  background-color: #161b22;
+  border: 1px solid #30363d;
   padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02);
   white-space: pre-wrap;
-  font-size: 15px;
+  font-size: 14.5px;
 }
 
 .explanation p {
@@ -46,35 +44,37 @@ p {
 }
 
 .explanation p:nth-child(odd) {
-  background-color: #f0f9ff; /* pale sky blue */
+  background-color: rgba(56, 139, 253, 0.08); /* soft blue highlight */
+  color: #58a6ff;
   padding: 0.3rem 0.6rem;
   border-radius: 6px;
 }
 
 .explanation p:nth-child(even) {
-  background-color: #fef6fb; /* pale pink/purple */
+  background-color: rgba(249, 105, 255, 0.08); /* soft pink/purple highlight */
+  color: #f975ff;
   padding: 0.3rem 0.6rem;
   border-radius: 6px;
 }
 
 details {
   margin-bottom: 1.25rem;
-  background: #ffffff;
+  background: #161b22;
   border-radius: 10px;
-  border: 1px solid #e2e8f0; /* light gray-blue */
+  border: 1px solid #30363d;
   padding: 0.75rem 1rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
-  transition: box-shadow 0.2s ease;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  transition: all 0.2s ease;
 }
 
 details:hover {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-color: #58a6ff;
 }
 
 summary {
-  font-weight: 600;
+  font-weight: bold;
   cursor: pointer;
-  color: #3b82f6; /* soft blue accent */
+  color: #3fb950; /* terminal green */
   font-size: 1rem;
   margin-bottom: 0.25rem;
 }
@@ -84,7 +84,7 @@ details pre {
   white-space: pre-wrap;
   font-family: inherit;
   font-size: 0.95rem;
-  color: #374151;
+  color: #d2d7dc;
 }
 
   </style>
