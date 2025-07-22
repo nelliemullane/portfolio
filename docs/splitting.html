@@ -325,7 +325,42 @@ for (const { name, lines } of personSections) {
 
 outputDiv.appendChild(indivDrop);
 
-outputDiv.appendChild(createDropdown("Per-Day Cost Justification", extractSection("Per-day cost justification:", "Settlement suggestions:")));
+const dayStart = lines.findIndex(l => l.trim().startsWith("Per-day cost justification:"));
+const dayEnd = lines.findIndex((l, i) => i > dayStart && l.trim().startsWith("Settlement suggestions:"));
+const perDayLines = lines.slice(dayStart + 1, dayEnd);
+
+// Group by day (lines that end with "shares:")
+const daySections = [];
+let d = 0;
+while (d < perDayLines.length) {
+  const header = perDayLines[d];
+  if (!header || !header.trim().endsWith("shares:")) {
+    d++;
+    continue;
+  }
+  const dayName = header.trim().split(" ")[0];
+  let j = d + 1;
+  while (j < perDayLines.length && !perDayLines[j].trim().endsWith("shares:")) j++;
+  const content = perDayLines.slice(d, j);
+  daySections.push({ name: dayName, lines: content });
+  d = j;
+}
+
+// Create main "Per-Day Cost Justification" dropdown
+const dayDrop = document.createElement("details");
+dayDrop.open = false;
+
+const daySummary = document.createElement("summary");
+daySummary.textContent = "Per-Day Cost Justification";
+dayDrop.appendChild(daySummary);
+
+// Nest each day's breakdown
+for (const { name, lines } of daySections) {
+  dayDrop.appendChild(createDropdown(name, lines));
+}
+
+outputDiv.appendChild(dayDrop);
+
 
 const hasSettlement = lines.some(l => l.startsWith("Settlement suggestions:") || l.startsWith("Everyone has settled up correctly."));
 
