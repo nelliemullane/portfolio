@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +6,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trip Expense Splitter</title>
   <style>
-    body { font-family: monospace; padding: 2rem; background: #f9f9f9; }
-    .explanation { background: #fff; border: 1px solid #ccc; padding: 1rem; border-radius: 6px; white-space: pre-wrap; }
+    body {
+      font-family: system-ui, sans-serif;
+      padding: 2rem;
+      background: #f0f4f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: #34495e;
+    }
+
+    .explanation {
+      background: #ffffff;
+      border: 1px solid #ccd6dd;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      white-space: pre-wrap;
+    }
+
+    .explanation p {
+      margin: 0.5rem 0;
+    }
+
+    .explanation p:nth-child(odd) {
+      background-color: #e3f2fd;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+    }
+
+    .explanation p:nth-child(even) {
+      background-color: #fef9e7;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+    }
   </style>
 </head>
 <body>
@@ -18,19 +60,32 @@
   <script>
     // ===== INPUTS =====
     const expenses = [
-      { description: "Trader Joe's groceries", amount: 120, paidBy: "Jake" },
-      { description: "Gas", amount: 60, paidBy: "Nellie" }
-    ];
+  { description: "The Point Market", amount: 31.42, paidBy: "George" },
+  { description: "Trader Joe's Camarillo", amount: 36.42, paidBy: "Jake" },
+  { description: "Trader Joe's Emeryville", amount: 117.12, paidBy: "Jake" },
+  { description: "Target Emeryville", amount: 132.04, paidBy: "Leo" },
+  { description: "Camp Store", amount: 80, paidBy: "Sierra" }
+];
 
-    const days = [
-      { name: "Saturday", weight: 0.5 },
-      { name: "Sunday", weight: 1.0 }
-    ];
 
-    const people = [
-      { name: "Nellie", attendance: { Saturday: 0.33, Sunday: 1.0 } },
-      { name: "Jake", attendance: { Saturday: 1.0, Sunday: 1.0 } }
-    ];
+const days = [
+  { name: "Thursday", weight: 0.5 },
+  { name: "Friday", weight: 1.0 },
+  { name: "Saturday", weight: 1.0 },
+  { name: "Sunday", weight: 1.0 }
+];
+
+
+const people = [
+  { name: "Jake", attendance: { Thursday: 1, Friday: 1, Saturday: 1, Sunday: 1 } },
+  { name: "George", attendance: { Thursday: 1, Friday: 1, Saturday: 1, Sunday: 1 } },
+  { name: "Sierra", attendance: { Thursday: 1, Friday: 1, Saturday: 1, Sunday: 1 } },
+  { name: "Leo", attendance: { Thursday: 1, Friday: 1, Saturday: 1, Sunday: 1 } },
+  { name: "Joe", attendance: { Thursday: 1, Friday: 1, Saturday: 1, Sunday: 1 } },
+  { name: "Krease", attendance: { Thursday: 1, Friday: 1, Saturday: 1, Sunday: 1/3 } },
+  { name: "Nellie", attendance: { Thursday: 0, Friday: 0, Saturday: 1/3, Sunday: 1 } }
+];
+
 
     // ===== DERIVED VALUES =====
     const totalCost = expenses.reduce((sum, e) => sum + e.amount, 0);
@@ -127,11 +182,30 @@
     }
 
     if (settlements.length > 0) {
-      lines.push("\nSettlement suggestions:");
-      lines.push(...settlements);
-    } else {
-      lines.push("\nEveryone has settled up correctly.");
+  lines.push("\nSettlement suggestions:");
+  const receiverReceipts = {};
+
+  for (const s of settlements) {
+    lines.push(s);
+    const [payerName, , receiverName, amountStr] = s.split(" ");
+    const amount = parseFloat(amountStr.slice(1)); // remove $ symbol
+    if (!receiverReceipts[receiverName]) receiverReceipts[receiverName] = [];
+    receiverReceipts[receiverName].push({ from: payerName, amount });
+  }
+
+  for (const [receiver, receipts] of Object.entries(receiverReceipts)) {
+    const totalReceived = receipts.reduce((sum, r) => sum + r.amount, 0);
+    const target = balances[receiver].toFixed(2);
+    lines.push(`\n${receiver} receives:`);
+    for (const r of receipts) {
+      lines.push(`  - $${r.amount.toFixed(2)} from ${r.from}`);
     }
+    lines.push(`  => Total received: $${totalReceived.toFixed(2)}. Target balance: $${parseFloat(target).toFixed(2)}\n`);
+  }
+} else {
+  lines.push("\nEveryone has settled up correctly.");
+}
+
 
     document.getElementById("output").textContent = lines.join("\n");
   </script>
