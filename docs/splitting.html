@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip Expense Splitter</title>
+  <style>
+    body { font-family: monospace; padding: 2rem; background: #f9f9f9; }
+    .explanation { background: #fff; border: 1px solid #ccc; padding: 1rem; border-radius: 6px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Trip Expense Splitter</h1>
+  <p>This app shows a detailed breakdown of who paid what and how much each person owes.</p>
+
+  <div class="explanation" id="output"></div>
+
+  <script>
+    // ===== INPUTS =====
+    const expenses = [
+      { description: "Trader Joe's groceries", amount: 120, paidBy: "Jake" },
+      { description: "Gas", amount: 60, paidBy: "Nellie" }
+    ];
+
+    const days = [
+      { name: "Saturday", weight: 0.5 },
+      { name: "Sunday", weight: 1.0 }
+    ];
+
+    const people = [
+      { name: "Nellie", attendance: { Saturday: 0.33, Sunday: 1.0 } },
+      { name: "Jake", attendance: { Saturday: 1.0, Sunday: 1.0 } }
+    ];
+
+    // ===== DERIVED VALUES =====
+    const totalCost = expenses.reduce((sum, e) => sum + e.amount, 0);
+    const totalWeight = days.reduce((sum, d) => sum + d.weight, 0);
+
+    const dayCosts = {};
+    for (const d of days) {
+      dayCosts[d.name] = (d.weight / totalWeight) * totalCost;
+    }
+
+    const personOwes = {};
+    const perDayBreakdown = {};
+    for (const day of days.map(d => d.name)) {
+      perDayBreakdown[day] = [];
+    }
+
+    for (const p of people) {
+      let total = 0;
+      for (const [day, fraction] of Object.entries(p.attendance)) {
+        const attendees = people.map(peep => peep.attendance[day] || 0).reduce((a, b) => a + b, 0);
+        const share = attendees > 0 ? ((fraction || 0) / attendees) * (dayCosts[day] || 0) : 0;
+        total += share;
+        perDayBreakdown[day].push({ name: p.name, share });
+      }
+      personOwes[p.name] = total;
+    }
+
+    const personPaid = {};
+    for (const e of expenses) {
+      personPaid[e.paidBy] = (personPaid[e.paidBy] || 0) + e.amount;
+    }
+
+    const balances = {};
+    for (const p of people) {
+      balances[p.name] = (personPaid[p.name] || 0) - (personOwes[p.name] || 0);
+    }
+
+    // ===== SETTLEMENT =====
+    const payers = [], receivers = [];
+    for (const [person, balance] of Object.entries(balances)) {
+      if (balance < -0.01) payers.push({ name: person, amount: -balance });
+      else if (balance > 0.01) receivers.push({ name: person, amount: balance });
+    }
+
+    const settlements = [];
+    while (payers.length && receivers.length) {
+      const payer = payers[0];
+      const receiver = receivers[0];
+      const amount = Math.min(payer.amount, receiver.amount);
+
+      settlements.push(`${payer.name} owes ${receiver.name} $${amount.toFixed(2)}`);
+
+      payer.amount -= amount;
+      receiver.amount -= amount;
+
+      if (payer.amount < 0.01) payers.shift();
+      if (receiver.amount < 0.01) receivers.shift();
+    }
+
+    // ===== EXPLANATION =====
+    const lines = [];
+    lines.push(`Total trip cost: $${totalCost.toFixed(2)}`);
+    for (const e of expenses) {
+      lines.push(`${e.paidBy} paid $${e.amount} for ${e.description}.`);
+    }
+    lines.push("\nDay weights:");
+    for (const d of days) {
+      lines.push(`${d.name} had weight ${d.weight}, costing $${dayCosts[d.name].toFixed(2)}.`);
+    }
+
+    lines.push("\nIndividual breakdowns:");
+    for (const p of people) {
+      lines.push(`${p.name} was present:`);
+      let total = 0;
+      for (const [day, fraction] of Object.entries(p.attendance)) {
+        const attendees = people.map(peep => peep.attendance[day] || 0).reduce((a, b) => a + b, 0);
+        const share = attendees > 0 ? ((fraction || 0) / attendees) * (dayCosts[day] || 0) : 0;
+        total += share;
+        lines.push(`  - ${fraction} of ${day}, owing $${share.toFixed(2)}`);
+      }
+      lines.push(`  => Total owed: $${total.toFixed(2)}`);
+      lines.push(`  => Paid: $${(personPaid[p.name] || 0).toFixed(2)}`);
+      lines.push(`  => Net balance: $${balances[p.name].toFixed(2)}\n`);
+    }
+
+    lines.push("\nPer-day cost justification:");
+    for (const [day, shares] of Object.entries(perDayBreakdown)) {
+      const total = shares.reduce((sum, s) => sum + s.share, 0);
+      lines.push(`  ${day} shares:`);
+      for (const s of shares) {
+        lines.push(`    - ${s.name} pays $${s.share.toFixed(2)}`);
+      }
+      lines.push(`  => Total collected: $${total.toFixed(2)} (expected: $${dayCosts[day].toFixed(2)})\n`);
+    }
+
+    if (settlements.length > 0) {
+      lines.push("\nSettlement suggestions:");
+      lines.push(...settlements);
+    } else {
+      lines.push("\nEveryone has settled up correctly.");
+    }
+
+    document.getElementById("output").textContent = lines.join("\n");
+  </script>
+</body>
+</html>
