@@ -108,7 +108,7 @@ const people = [
   { name: "Leo", attendance: { Thursday: 1, Friday: 1, Saturday: 1, Sunday: 1 } },
   { name: "Joe", attendance: { Thursday: 1, Friday: 1, Saturday: 1, Sunday: 1 } },
   { name: "Krease", attendance: { Thursday: 1, Friday: 1, Saturday: 1, Sunday: 1/3 } },
-  { name: "Nellie", attendance: { Thursday: 0, Friday: 0, Saturday: 1/3, Sunday: 1 } }
+  { name: "Nellie", attendance: { Thursday: 0, Friday: 0, Saturday: 1/2, Sunday: 1 } }
 ];
 
 
@@ -172,6 +172,7 @@ const people = [
 
     // ===== EXPLANATION =====
     const lines = [];
+    lines.push("Trip total:");
     lines.push(`Total trip cost: $${totalCost.toFixed(2)}`);
     for (const e of expenses) {
       lines.push(`${e.paidBy} paid $${e.amount} for ${e.description}.`);
@@ -262,13 +263,18 @@ function extractSection(startMatch, endMatch) {
   const endIdx = endMatch
     ? lines.findIndex((line, i) => i > startIdx && line.trim().startsWith(endMatch.trim()))
     : lines.length;
-  return startIdx !== -1 ? lines.slice(startIdx, endIdx) : [];
+
+  if (startIdx === -1) return [];
+
+  // Skip the header line (so it doesn't show up inside the dropdown)
+  return lines.slice(startIdx + 1, endIdx);
 }
 
 
 
+
 // Build sections
-outputDiv.appendChild(createDropdown("Total Trip Cost", extractSection("Total trip cost:", "Day weights:")));
+outputDiv.appendChild(createDropdown("Trip Total", extractSection("Trip total:", "Day weights:")));
 outputDiv.appendChild(createDropdown("Day Weights", extractSection("Day weights:", "Individual breakdowns:")));
 outputDiv.appendChild(createDropdown("Individual Breakdowns", extractSection("Individual breakdowns:", "Per-day cost justification:")));
 outputDiv.appendChild(createDropdown("Per-Day Cost Justification", extractSection("Per-day cost justification:", "Settlement suggestions:")));
@@ -281,7 +287,8 @@ if (hasSettlement) {
   outputDiv.appendChild(createDropdown("Settlement Suggestions", lines.slice(settleStart, formulasStart)));
 }
 
-outputDiv.appendChild(createDropdown("Formulas Used", lines.slice(lines.findIndex(l => l.startsWith("FORMULAS USED:")))));
+outputDiv.appendChild(createDropdown("Formulas Used", extractSection("FORMULAS USED:")));
+
 
   </script>
 
